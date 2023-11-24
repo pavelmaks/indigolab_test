@@ -1,8 +1,14 @@
 from django.contrib import admin
+from rest_framework.authtoken.models import Token
 
 from .models import Capibara
 
 
 @admin.register(Capibara)
-class AuthorAdmin(admin.ModelAdmin):
+class CapibaraAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Token)
+class TokenAdmin(admin.ModelAdmin):
     pass

@@ -3,11 +3,16 @@ from api.v1.serializers import CapibaraSerializer
 from django.http import HttpResponse
 from openpyxl import Workbook
 from rest_framework import status
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
 
 class CapibaraXlsxView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
     def export_to_excel(self, capibara_queryset):
         wb = Workbook()
         ws = wb.active
@@ -47,6 +52,9 @@ class CapibaraXlsxView(APIView):
 
 
 class CapibaraView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+
     def post(self, request, format=None):
         data = request.data
         if Capibara.objects.filter(id=data['id']).exists():
