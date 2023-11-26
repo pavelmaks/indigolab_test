@@ -39,4 +39,6 @@ python manage.py drf_create_token <user_name>
 
 ### Тестирование приложения
 
-Для тестирования приложения воспользуйтесь postman коллекцией: Capibara.postman_collection.json
+Для тестирования приложения воспользуйтесь postman коллекцией: 
+
+<a href="https://github.com/pavelmaks/indigolab_test/blob/main/Capibara.postman_collection.json">Capibara.postman_collection.json</a>
