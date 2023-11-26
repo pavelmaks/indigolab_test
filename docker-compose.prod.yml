@@ -6,11 +6,10 @@ services:
     env_file:
       - ./.env
     volumes:
-      - ./capibara_app/app/:/opt/app
       - static_value:/opt/app/static/
       - media_value:/opt/app/media/
-    ports:
-      - 127.0.0.1:8001:8000
+    expose:
+      - "8000"
     depends_on:
       db:
         condition: service_healthy
